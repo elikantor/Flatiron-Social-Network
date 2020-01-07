@@ -1,0 +1,56 @@
+<div class="container-fluid full-height" >
+
+    <% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
+        <div class="row justify-content-center p-2" >
+            <%= form_tag edit_user_path(@user),method: :get, class:"btn-sm btn-dark mr-2" do %>
+                <%= submit_tag "Edit Profile",class:"btn btn-dark" %>
+            <% end %>
+            <%= form_tag user_path(@user),method: :delete, class:"btn-sm btn-danger"  do %>
+                <%= submit_tag "Delete Profile", class:"btn btn-danger", data: { confirm: 'Are You Sure?' } %>
+            <% end %>
+        </div>
+    <% end%>
+
+<!-- Profile -->
+
+    <div class="row justify-content-center ">
+        <div class="display-4"> <%= @user.username %>'s Profile Page </div>
+    </div>
+
+    <% if @user.img_url%>
+        <div class="row justify-content-center rounded pt-2">
+            <%= image_tag @user.img_url, class: "img-thumbnail border-dark imgx" %>
+        </div>
+    <% end%>
+
+
+    <div class="row justify-content-center pt-3">
+        <div class="card border-primary" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> Name: <%= @user.username%> </li>
+                <% @user.attributes.each do |key,value|%>
+                    <% next unless value && (key == 'mood' || key == 'food' || key == 'music'|| key == 'hobby'|| key == 'job') && !value.empty? %>
+                    <li class="list-group-item"> <%="#{key.capitalize}: #{value}"%></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+
+    <%if @user.posts.count != 0 %>
+        <div class="row justify-content-center display-4 ">
+            All Posts:
+        </div>
+        <div class="row justify-content-center pt-3">
+            <div class="card border-dark" style="width: 30rem;">
+                <ul class="list-group list-group-flush">
+                    <% @user.posts.each do |post| %>
+                        <li class="list-group-item" style="background-color:rgba(236, 236, 236);">
+                            <p><%= link_to post.content, post %>  |👍: <%= post.likes.count %> 💬:<%= post.comments.count %> |<%if @logged_in_user == @user %><%= link_to("Delete", postx_path(post),method: :post,class:"btn-sm btn-danger",role:"button") %><%end %></p>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+    <% end%>
+
+
+</div>

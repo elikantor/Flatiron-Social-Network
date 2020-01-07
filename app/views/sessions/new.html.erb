@@ -1,0 +1,29 @@
+<div class="container-fluid full-height bg-light">
+    <div class="row mb-5">
+    </div>
+<div class="container bg-light p-3 "style="width: 25rem;">
+    <div class="row">
+    <h1>Login:</h1> 
+    </div>
+    <%= form_for @user, {url: "/login"} do |f| %>
+    <div class="form-group row">
+        <%= f.label :username %>
+        <%= f.text_field :username, class:"form-control", placeholder: "Enter Username"%>
+    </div>
+    <div class="form-group row">
+        <%= f.label :password %>
+        <%= f.password_field :password, class:"form-control", placeholder: "Password" %>
+    </div>
+        <%= f.submit "Login", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
+<!--
+<%= form_for @user, {url: "/login"} do |f| %>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+    <%= f.submit "Login" %>
+<% end %>
+-->

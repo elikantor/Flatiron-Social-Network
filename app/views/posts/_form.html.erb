@@ -1,0 +1,9 @@
+
+    <%= form_for @post do |f| %>
+    <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+    <div class="form-group row">
+        <%= f.label :content %>
+        <%= f.text_area :content, class:"form-control" %>
+    </div>
+        <%= f.submit "Update Profile", class: "btn btn-primary" %>
+<% end %>

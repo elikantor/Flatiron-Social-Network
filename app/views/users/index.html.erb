@@ -1,0 +1,17 @@
+<h2 class="text-center display-4 text-primary"> All Users </h2>
+
+<div class="container">
+<div class="row justify-content-md-center">
+ <% @users.each do |user| %>
+    <div class="card m-1 border-dark" style="width: 18rem;">
+    <a href="<%= user_path(user) %>">
+  <img  src="<%= (user.img_url && !user.img_url.empty?)? user.img_url : "https://static.thenounproject.com/png/630729-200.png" %>"class="card-img-top imgx " alt="user_picture">
+    </a>
+  <div class="card-body">
+    <%= link_to user.username, user_path(user),class:"card-title" %>
+    <p class="card-text"> <%= user.mood ? "I'm #{user.mood}" : "No comment" %></p>
+  </div>
+</div>
+ <% end%>
+</div>
+</div>

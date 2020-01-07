@@ -1,0 +1,88 @@
+<div class="container-fluid other-height " style="background-color:rgba(3, 36, 112);">
+  
+  <div class="row">
+        <!-- Left -->
+        <div class=" col-6 align-self-center" >
+            <div class="row" >
+            </div>
+            <div class="row " >
+                <div class="col-2">
+                </div>
+                <div class=" py-3 px-1 col-8 bg-light custom_img " style="text-align:center;">
+                    <% if @post.img_url%>
+                        <%= image_tag @post.img_url%>
+                    <% end%>
+                </div>
+                <div class="col-2 ">
+                </div>
+              
+            </div>
+        </div>
+        <!-- END Left -->
+        
+        <div class="col-6 m-0  bg-light other-height">
+
+            <div class="row my-2 ml-2 display-4">
+                <%= link_to @post.user.username, user_path(@post.user) %>
+            </div>
+
+            <div class="row p-3  ">
+                <div class="col-0 m-0">
+                </div>
+                <div class="col-9 m-0 bg-light">
+                    <%= @post.content %>
+                </div>
+                <div class="col-2 m-0">
+                </div>
+            </div>
+
+            <div class="row  p-2" >
+                <div class="col-8 m-0">
+                    <div class="row  px-2 justify-content-start" >
+                        <%= form_for post_path(@post),method: :get, class:"btn-sm btn-dark mr-2" do |f|%>
+                            <%= f.submit "    💬    ",class:"btn btn-dark m-1" %>
+                        <% end %>
+                        <%= form_for (@like), class:"btn-sm"  do |f|%>
+                            <%= f.hidden_field :post_id, :value => @post.id %>
+                            <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+                            <%= f.submit "    👍    ", class:"btn btn-primary m-1"%>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="col-4 m-0">
+                    <% if @logged_in_user == @post.user %>
+                        <div class="row  px-2 justify-content-end" >
+                            <%= form_tag post_path(@post),method: :delete, class:"btn-sm btn-danger mr-2" do %>
+                            <%= submit_tag "Delete",class:"btn-sm btn-danger m-1" %>
+                            <% end %> 
+                            <%= form_tag edit_post_path(@post),method: :get, class:"btn-sm btn-dark" do %>
+                            <%= submit_tag "Edit",class:"btn-sm btn-dark m-1"%>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="row  p-2 ml-2" >
+                Likes: <%= @post.likes.count %> Comments: <%= @post.comments.count %>
+            </div>
+
+            <% @post.comments.each do |comment| %>
+                <div class="row ml-2" >
+                    <p><%= link_to comment.user.username, comment.user %> said: <%= comment.content %></p>
+                </div>
+            <% end %>
+        
+            <div class="row ml-2 p-2" >
+                <%= form_for(@comment) do |f| %>
+                    <%= f.hidden_field :post_id, :value => @post.id %>
+                    <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+                    <%= f.text_field :content %>
+                    <%= f.submit "Comment" %>
+                <% end %>
+            <div>
+
+        </div>
+  </div>
+</div>

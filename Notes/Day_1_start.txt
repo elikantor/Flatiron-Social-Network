@@ -1,0 +1,14 @@
+OBJECTIVES FOR THE DAY:
+
+- MVC for:
+ *User
+ *Post
+ *Comment
+ *Like
+______________________________________
+ = to add
+ *event
+ *attendee
+
+=========================================
+Setting tables models - and connecting to control

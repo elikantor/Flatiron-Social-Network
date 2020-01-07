@@ -1,0 +1,57 @@
+<% if @logged_in_user %>
+<div class="container-fluid">
+<div class="row justify-content-md-center display-4">
+Welcome, <%= User.find(session[:user_id]).username.capitalize%>
+</div>
+<hr>
+<%= render "posts/all" %>
+</div>
+
+
+<% else %>
+<div class="container-fluid" style="background-image:url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/441870/72cd26e14b7fcba028206a06f10548c0d5174cfc.jpg);" > <%# rgba(236, 236, 236)%>
+
+    <div class="row justify-content-center p-5 " style="height:200px">
+        <div class="col-4 d-flex align-items-center justify-content-center display-4">
+        </div>
+    </div>
+
+    <div class="row justify-content-center p-3 ">
+      <div class="col-sm d-flex align-items-center justify-content-center display-4" style="font-size: 80px; color:whitesmoke;text-shadow: 5px 5px #000;">
+        Welcome To Flatbook
+      </div>
+    </div>
+  
+    <div class="row justify-content-center p-3">
+      <div class="col-4 d-flex align-items-center justify-content-center">
+        <div class="text-center"> 
+          <%= link_to 'Login', login_path, class: "btn-lg btn-dark",role: "button" %>
+        </div> 
+      </div>
+      <div class="col-4 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <%= link_to 'Sign-Up', sign_up_path, class: "btn-lg btn-dark",role: "button" %>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="height:260px;">
+    
+    </div>
+</div>
+
+<% end %>
+
+
+<!--
+<%= form_tag login_path,method: :get do %>
+    <%= submit_tag "Log-In" %>
+<% end %>
+<br>
+<%= form_tag '/logout', method: :post do %>
+    <%= submit_tag "Log-out" %>
+<% end %>
+
+<%= form_tag sign_up_path, method: :get do %>
+    <%= submit_tag "Sign-Up" %>
+<% end %>
+-->

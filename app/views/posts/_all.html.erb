@@ -1,0 +1,36 @@
+<div class="container">
+<div class="row justify-content-md-center mb-4 " style="font-size:32px; color: rgb(34, 123, 177);">
+News Feed
+</div>
+
+<div class="row justify-content-md-center">
+<div class="card w-75 p-4 border-primary mb-3">
+<div class="col">
+    <%= form_for Post.new do |f| %>
+    <div class="form-group">
+        <%= f.text_area :content, class:"form-control", placeholder: "New Post"%>
+    <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+    </div>
+</div>
+    <div class="col">
+        <%= f.submit "Post", class: "btn btn-outline-primary" %>
+    </div>
+<% end %>
+</div>
+</div>
+
+
+
+
+<% @posts.each do |post| %>
+<div class="row justify-content-md-center">
+<div class="card w-75 center m-1 border-dark">
+  <div class="card-body">
+    <h5 class="card-title "><%=link_to post.user.username, post.user %></h5>
+    <p class="card-text"><%= post.content %></p>
+    <%= link_to "Full Post", post_path(post),class:"btn btn-primary float-right"%><br>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
