@@ -13,7 +13,7 @@ Comment.destroy_all
 emotions = ["happy","sad","hungry","excited","depressed","cool","chill","relaxed"]
 
 us1 = User.create(username: "Danny", password:'1234', mood: "mad")
-us2= User.create(username: "Eli", password:'1111', mood: "dumb")
+us2= User.create(username: "Eli", password:'1111', mood: "happy")
 us3 = User.create(username: "Jack", password:'2222', mood: "curious")
 us4 = User.create(username: Faker::Name.name, password:'3333', mood: "excited")
 us5 = User.create(username: Faker::Name.name, password:'4444', mood: "serious")
