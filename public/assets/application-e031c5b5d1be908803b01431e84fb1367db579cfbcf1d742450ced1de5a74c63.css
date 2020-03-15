@@ -1,0 +1,71 @@
+/* line 3, app/assets/stylesheets/users.scss */
+.users-table {
+  background-color: black;
+  height: 50px;
+}
+
+/* line 8, app/assets/stylesheets/users.scss */
+.custom_img img {
+  height: 400px;
+  width: 400px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* body {
+    background-color :white;     
+ }
+
+ nav {
+    background-color :green;
+    color :whitesmoke;
+ }
+
+ ul li {
+     display: inline;
+     text-decoration: none;
+ } */
+/* line 30, app/assets/stylesheets/application.scss */
+.full-height {
+  height: 100vh;
+}
+
+/* line 34, app/assets/stylesheets/application.scss */
+.half-height {
+  height: 500px;
+}
+
+/* line 38, app/assets/stylesheets/application.scss */
+.pimage {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* line 42, app/assets/stylesheets/application.scss */
+.imgx {
+  width: 17.85rem !important;
+  height: 18rem !important;
+}
+
+/* line 47, app/assets/stylesheets/application.scss */
+.imgp {
+  width: 18rem !important;
+  height: 18rem !important;
+}
+
+/* line 52, app/assets/stylesheets/application.scss */
+.other-height {
+  height: 100vh;
+}
