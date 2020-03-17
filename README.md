@@ -2,7 +2,7 @@
 
 > A facebook inspired social network.
 
-<h4>This project has been deployed <a href="https://flatiron-social-network.herokuapp.com">here</a></h4>
+<h4>This project has been deployed <a href="https://flatiron-social-network.herokuapp.com">here</a>.  A walk-through of the app can be viewed <a href="https://www.youtube.com/watch?v=LinK-i-a8CU&feature=youtu.be">here</a>.</h4>
 
 ## Usage and Features
 Flatiron Social Network is a place where users can share their profile, posts, and comments with other users.
